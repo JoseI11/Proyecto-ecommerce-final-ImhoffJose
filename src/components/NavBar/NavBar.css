@@ -1,0 +1,56 @@
+/*.navBar {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.color1 {
+    color: green;
+}
+
+.color2 {
+    color: blue;
+}*/
+
+.navbar {
+    background-color: lightblue;
+}
+.navbar-brand{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.navbar-nav{
+    position: relative;
+    left: 25%;
+}
+.navbar-nav a:hover{
+    background-color: lightcoral;
+}
+.navbar-nav .dropdown-item:hover{
+    background-color: red;
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: inline-block;
+}
+p{
+   vertical-align: bottom;
+}
+.botonCarrito{
+
+    width: 7%;
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+}
+img{
+    width:5%;
+}
+p{
+    font-size: 1rem;
+    position: relative;
+    top: 7px;
+    
+}
+.imagenCarrito{
+    width:60%;
+}
