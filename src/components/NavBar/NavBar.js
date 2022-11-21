@@ -1,17 +1,15 @@
 import './NavBar.css';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Cardwidget from '../CartWidget/CardWidget';
 const navigationBar = () => {
     return (
-        <Navbar  expand="lg">
+        <Navbar expand="lg">
             <Container fluid>
-            <Navbar.Brand href="#">Computer supplies & solutions</Navbar.Brand>
-        
+                <Navbar.Brand href="#">Computer supplies & solutions</Navbar.Brand>
+                <img src={'./images/iconoLogo.png'} alt="Logo" />
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -22,7 +20,7 @@ const navigationBar = () => {
                         <Nav.Link href="#action1">Accesorios</Nav.Link>
                         <Nav.Link href="#action2">Gabinetes</Nav.Link>
                         <NavDropdown title="Componentes" id="navbarScrollingDropdown">
-                      
+
                             <NavDropdown.Item href="#action4">
                                 SSD's
                             </NavDropdown.Item>
@@ -35,9 +33,9 @@ const navigationBar = () => {
                                 Discos rigidos
                             </NavDropdown.Item>
                         </NavDropdown>
-                      
+
                     </Nav>
-                    <Cardwidget/>
+                    <Cardwidget />
                 </Navbar.Collapse>
             </Container>
         </Navbar>

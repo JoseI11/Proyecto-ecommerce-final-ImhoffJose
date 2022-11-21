@@ -17,6 +17,7 @@
 }
 .navbar-brand{
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 .navbar-nav{
     position: relative;
