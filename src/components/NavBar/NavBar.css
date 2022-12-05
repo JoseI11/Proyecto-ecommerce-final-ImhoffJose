@@ -25,13 +25,26 @@
 }
 .navbar-nav a:hover{
     background-color: lightcoral;
-}
-.navbar-nav .dropdown-item:hover{
-    background-color: red;
-}
 
+}
+a .dropdown-item:active{
+
+    color: black;
+}
+/* .navbar-nav .dropdown-item:hover{
+    background-color: red;
+    color: white;
+} */
+.iiemnoActivo{
+    color: black;
+    
+}
+.itemActivo{
+    color:white;
+    background-color: blue;
+}
 .navbar-nav .dropdown:hover .dropdown-menu {
-    display: inline-block;
+    display: block;
 }
 p{
    vertical-align: bottom;
@@ -42,9 +55,30 @@ p{
     display: flex;
     background-color: transparent;
     border: transparent;
+    cursor: default;
+    position: relative;
+    right: 100px;
 }
 img{
     width:5%;
+}
+.botonCantidad{
+    width: 40%;
+    position: relative;
+    left: 30%;
+    background-color: transparent;
+    border: transparent;
+}
+.botonCantidadmenos{
+    background-color: transparent;
+    border: transparent;
+}
+.cantidad{
+    width: 100%;
+    font-size: 1.2rem;
+    position: relative;
+    top: 5px;
+    left: 15%;
 }
 p{
     font-size: 1rem;

@@ -1,0 +1,15 @@
+.card{
+    position: relative;
+    left: 24%;
+    top: 30px;
+    width: 55%;
+}
+.container1{
+    margin-top: 100px;
+    margin-bottom: 100px; 
+
+}
+.imagenDetalle{
+    width: 300px;
+    margin-right: 500px;
+}
