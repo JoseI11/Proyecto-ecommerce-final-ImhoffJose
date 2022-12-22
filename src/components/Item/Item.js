@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../Item/Item.css'
 
 
-const Prodisenio = ({ prod1 }) => {
+const Item = ({ prod1 }) => {
 
     return (
 
@@ -25,4 +25,4 @@ const Prodisenio = ({ prod1 }) => {
     )
 
 }
-export default Prodisenio
+export default Item

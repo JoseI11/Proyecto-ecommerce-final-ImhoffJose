@@ -1,5 +1,5 @@
 
-import Prodisenio from '../Item/Item';
+import Item from '../Item/Item';
 import '../ItemList/ItemList.css'
 
 const ItemList = ({ productos2 }) => {
@@ -7,7 +7,7 @@ const ItemList = ({ productos2 }) => {
     <div className='itemList'>
       {
         productos2.map(prod => (
-          <Prodisenio key={prod.id} prod1={prod} />
+          <Item key={prod.id} prod1={prod} />
         ))
       }
     </div>

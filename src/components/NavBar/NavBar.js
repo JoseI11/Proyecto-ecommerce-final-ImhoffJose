@@ -2,14 +2,18 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Cartwidget from '../CartWidget/CartWidget';
-import ContadorIncremento from '../ItemCount/ItemCount';
-import { Link, NavLink } from 'react-router-dom';
+
+import CartWidget from '../CartWidget/CartWidget';
+
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
 import './NavBar.css';
-const navigationBar = () => {
-    
- 
+const NavigationBar = () => {
+
+    const {getCantidad} = useContext(CartContext);
+    const cantidadTotal = getCantidad();
     return (
         <Navbar expand="lg">
             <Container fluid>
@@ -27,16 +31,16 @@ const navigationBar = () => {
                         <Nav.Link  as={NavLink } to='/category'>Gabinetes</Nav.Link> */}
                         <Nav.Link as={Link} to='/category/SSD'>SSD</Nav.Link>
                         <Nav.Link as={Link} to='/category/MemRam'>Memorias</Nav.Link>
-                    
+                        
 
                     </Nav>
-                    <Cartwidget valor={5}/>
-             
-                    
+                    <CartWidget valor={cantidadTotal} />
+
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     )
 }
 
-export default navigationBar
+export default NavigationBar

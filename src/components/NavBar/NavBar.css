@@ -1,16 +1,4 @@
-/*.navBar {
-    display: flex;
-    justify-content: space-between;
 
-}
-
-.color1 {
-    color: green;
-}
-
-.color2 {
-    color: blue;
-}*/
 
 .navbar {
     background-color: lightblue;
@@ -31,10 +19,7 @@ a .dropdown-item:active{
 
     color: black;
 }
-/* .navbar-nav .dropdown-item:hover{
-    background-color: red;
-    color: white;
-} */
+
 .iiemnoActivo{
     color: black;
     
@@ -86,6 +71,8 @@ p{
     top: 7px;
     
 }
-.imagenCarrito{
-    width:60%;
+a.nav-link{
+    color: blue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }

@@ -1,0 +1,34 @@
+.carrito{
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    top: 30px; */
+
+  /*  width: 55%;*/
+  margin-bottom: 5%;
+  color: red;
+}
+.botonesRedir{
+    margin-top: 300px;
+    margin-bottom: 300px;
+}
+.textoEpigrafe{
+    font-size: 1.2rem;
+}
+.carritoVacio{
+    width: 500px;
+}
+.compraFinalizada{
+    display: flex;
+    width: 16%;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    flex-direction: column;
+    align-self: center;
+    margin-left: 42%;
+    margin-top: 2%;
+}

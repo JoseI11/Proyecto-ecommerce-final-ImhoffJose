@@ -1,4 +1,9 @@
 .itemList{
-    display: flex;
-    justify-content: center;
+    display: grid;
+  
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 80px;
 }

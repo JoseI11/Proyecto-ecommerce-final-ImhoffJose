@@ -1,41 +1,60 @@
 
+import { useState, useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import ContadorIncremento from '../ItemCount/ItemCount';
+
+import { CartContext } from '../../context/CartContext';
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 import '../ItemDetail/ItemDetail.css';
-const ItemDetail = ({ prod2 }) => {
-    const handleonClick = (cantidad) => {
-        return cantidad
+const ItemDetail = ({ id, name, description, price, img, stock }) => {
+    
+    const { addItem, removeItem, isInCart } = useContext(CartContext);
+
+    const handleonClick = (quantityToadd) => {
+        console.log(quantityToadd);
+        addItem({ id, name, price,quantityToadd,stock });
+        // addItem(id,name,price,quantityToadd);
     }
+
+    const isAdded = isInCart(id);
     return (
         <div>
             <div className='container1'>
-                <Card >
+                <Card>
                     <div className='row no-gutters'>
                         <div className='col-sm-5'>
-                            <Card.Img className='imagenDetalle' variant="top" src={prod2.img} />
+                            <Card.Img className='imagenDetalle' variant="top" src={img} />
                         </div>
                         <div className='col-sm-7'>
                             <Card.Body>
-                                <Card.Title>{prod2.name}</Card.Title>
+                                <Card.Title>{name}</Card.Title>
                                 <Card.Text>
-                                    {prod2.description}
+                                    {description}
                                 </Card.Text>
-                                <p>{prod2.price}</p>
-                                <ContadorIncremento initial={0} stock={15} onAdd={handleonClick} />
+                                <p>{price}</p>
+
                             </Card.Body>
                         </div>
+
+                        <section>
+
+
+                            {
+                                isAdded ? <Button as={Link} to='/cart'>Terminar compra</Button>:
+                                stock > 0 ? <ItemCount stock={stock} onAdd={handleonClick} /> : <h1>No existe stock disponible</h1>
+                            }
+
+                            {/* <button onClick={()=>{isAdded ? removeItem(prod2.id) : addItem(prod2)}}>
+                                        {isAdded ? 'Quitar compra' :'Agregar compra'}
+                                     </button> */}
+                        </section>
+                        {/* addItem([...cartEcommerce , prod2.id]) */}
                     </div>
                 </Card>
             </div>
 
-
-
-
-            {/* <h2>{prod2.name}</h2>
-            <p>{prod2.description}</p>
-            <p>{prod2.price}</p>
-            <img className="imagenProd" src={prod2.img} alt="img2" /> */}
-        </div >
+        </div>
     )
 }
 export default ItemDetail

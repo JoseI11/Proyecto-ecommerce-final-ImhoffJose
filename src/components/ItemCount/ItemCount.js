@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState,useContext} from "react";
 import { Button } from "react-bootstrap";
+import { CartContext } from "../../context/CartContext";
+
 import '../ItemCount/ItemCount.css'
-const ContadorIncremento = ({ initial, stock, onAdd }) => {
-    const [count, setCount] = useState(initial)
+
+const ItemCount = ({ stock, onAdd }) => {
+    const [count, setCount] = useState(0)
+   // const {setCartecommerce} = useContext(CartContext);
     const incremento = () => {
         if (count < stock) {
             setCount(count + 1)
@@ -10,11 +14,12 @@ const ContadorIncremento = ({ initial, stock, onAdd }) => {
 
     }
     const decremento = () => {
-        if (count !== 0) {
+        if (count > 0) {
             setCount(count - 1)
         }
 
     }
+       
     return (
         <div>
             <div className="itemCountcontainer">
@@ -23,9 +28,9 @@ const ContadorIncremento = ({ initial, stock, onAdd }) => {
                     <h5>{count}</h5>
                     <button className="suma" onClick={() => incremento()}>+</button>
                 </div>
-                <Button variant="primary" onClick={() => onAdd(count)}>Agregar</Button>
-
-                {/* <button className="agregar" >Agregar</button> */}
+                <Button variant="primary" onClick={() => onAdd(count)} disabled={count===0}>Agregar producto</Button>
+              
+            
             </div>
 
 
@@ -35,4 +40,4 @@ const ContadorIncremento = ({ initial, stock, onAdd }) => {
 
     )
 }
-export default ContadorIncremento
+export default ItemCount

@@ -1,5 +1,13 @@
-
+/* .fondoProd{
+    background-color: rgba(255, 122, 81, 0.87);
+} */
 h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(13, 201, 176);
+}
+.spinner{
+    position: relative;
+    top: 270px;
+    width: 4rem;
+    height: 4rem;
 }

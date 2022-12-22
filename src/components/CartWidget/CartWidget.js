@@ -1,12 +1,16 @@
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '../CartWidget/CartWidget.css';
-const Cardwidget = ({valor}) =>{
-    return(
-        
 
+const CardWidget = ({ valor }) => {
+    return (
         <div className="botonCarrito">
-            <img className="imagenCarrito" src={"../images/carrito-removebg-preview.png"} alt="carrito compras"/>
-        <p>{valor}</p>
+            <Button as={Link} style={{display:'flex',color:'black',borderColor:'transparent',backgroundColor:'lightgrey',width:'100%',borderRadius:'20px'}} to='/cart'>
+                <img className="imagenCarrito" src={"../images/carrito-removebg-preview.png"} alt="carrito compras" />
+                <p className='valorCarrito'>{valor}</p>
+            </Button>
+
         </div>
     )
 }
-export default Cardwidget
+export default CardWidget

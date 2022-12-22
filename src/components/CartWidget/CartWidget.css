@@ -1,3 +1,15 @@
-p{
+.valorCarrito{
+    position: relative;
+    top: 30%;
     font-size: 1rem;
+    
+}
+
+.imagenCarrito{
+    margin-right: 5px;
+    
+    top: 5px;
+    width: 80%;
+    position: relative;
+    right: 10%;
 }

@@ -1,3 +1,6 @@
-.imgd{
-    width: 150px;
+.spinner{
+    position: relative;
+    top: 270px;
+    width: 4rem;
+    height: 4rem;
 }
