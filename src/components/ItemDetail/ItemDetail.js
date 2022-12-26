@@ -1,5 +1,5 @@
 
-import { useState, useContext } from 'react';
+import {useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 
@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 import '../ItemDetail/ItemDetail.css';
 const ItemDetail = ({ id, name, description, price, img, stock }) => {
     
-    const { addItem, removeItem, isInCart } = useContext(CartContext);
+    const { addItem, isInCart } = useContext(CartContext);
 
     const handleonClick = (quantityToadd) => {
-        console.log(quantityToadd);
+    
         addItem({ id, name, price,quantityToadd,stock });
-        // addItem(id,name,price,quantityToadd);
+
     }
 
     const isAdded = isInCart(id);
@@ -32,7 +32,7 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
                                 <Card.Text>
                                     {description}
                                 </Card.Text>
-                                <p>{price}</p>
+                                <p>${price}</p>
 
                             </Card.Body>
                         </div>
@@ -42,7 +42,7 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
 
                             {
                                 isAdded ? <Button as={Link} to='/cart'>Terminar compra</Button>:
-                                stock > 0 ? <ItemCount stock={stock} onAdd={handleonClick} /> : <h1>No existe stock disponible</h1>
+                                stock > 0 ? <ItemCount stock={stock} onAdd={handleonClick} />:<h4>Estamos sin stock actualmente</h4>
                             }
 
                             {/* <button onClick={()=>{isAdded ? removeItem(prod2.id) : addItem(prod2)}}>

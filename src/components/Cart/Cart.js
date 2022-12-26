@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import '../Cart/Cart.css';
 const Cart = () => {
     const { cartEcommerce, removeItem, clearCart, getTotalcarrito } = useContext(CartContext);
-    console.log(cartEcommerce);
-    const totalCarrito = getTotalcarrito();
+
 
     return (
 

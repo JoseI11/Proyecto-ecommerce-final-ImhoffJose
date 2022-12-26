@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+// import { getDocs,collection,query,where, orderBy} from 'firebase/firestore';
+// import { db } from '../../services/firebase/firebaseConfig';
 const firebaseConfig = {
   apiKey: "AIzaSyCCEH4G2dO_37yo5cq4CHcAxpqMtbKixqg",
   authDomain: "e-commerce-imhoffjose.firebaseapp.com",

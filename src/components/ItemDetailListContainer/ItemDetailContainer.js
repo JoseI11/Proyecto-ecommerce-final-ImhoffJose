@@ -1,42 +1,26 @@
 
-import { getProductos1byid } from "../../asyncMockroductos";
+
 import { useState, useEffect } from "react";
 import Spinner from 'react-bootstrap/Spinner';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import '../ItemDetailListContainer/ItemDetailContainer.css';
 import { useParams } from "react-router-dom";
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../../services/firebase/firebaseConfig";
 
-
+import { getProductosbyId } from "../../services/firebase/Firestore/productos";
+import { useAsync } from "../../hooks/useAsync";
 const Itemdetailcontainer = () => {
     const { productoId } = useParams()
-    const [producto, setProductos] = useState({})
-    const [isloading, setLoading] = useState(true)
-    useEffect(() => {
-        const productoRef = doc(db, 'productos', productoId)
 
-        getDoc(productoRef).then(response => {
-            const data = response.data()
-            const productoAdapted = { id: response.id, ...data }
-
-            setProductos(productoAdapted)
-        }).catch(error => {
-            console.log(error)
-        }).finally(()=>{
-            setLoading(false)
-        }
-
-        )
-    }, [productoId])
-    if(isloading){
-        return <><Spinner animation="grow" variant="warning" className='spinner'/></> 
+    const getProductosdetalle=()=>getProductosbyId(productoId)
+    const {data: producto, error,isloading}=useAsync(getProductosdetalle,[productoId])
+    if (isloading) {
+        return <><Spinner animation="grow" variant="warning" className='spinner' /></>
     }
     return (
         <div>
-            {/* {console.log(producto)} */}
+            <h1>Detalle del producto</h1>
             <ItemDetail {...producto} />
-            {/* <ItemList productos2 = {productos1}/> */}
+
         </div>
 
 

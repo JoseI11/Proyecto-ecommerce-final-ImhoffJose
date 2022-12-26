@@ -1,0 +1,57 @@
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    width: 30%;
+
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__field:focus {
+  
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right,red,black);
+    border-image-slice: 1;
+}
+.labelEstilo{
+    display: block;
+    color: blue;
+}
+.formEstilo{
+    margin-top: 5%;
+}
+
+#username::placeholder{
+    color: black;
+    opacity: 0.5;
+}
+#usermail::placeholder{
+    color: black;
+    opacity: 0.5;
+}
+#userrepmail::placeholder{
+    color: black;
+    opacity: 0.5;
+}
+#usertelefono::placeholder{
+    color: black;
+    opacity: 0.5;
+}
