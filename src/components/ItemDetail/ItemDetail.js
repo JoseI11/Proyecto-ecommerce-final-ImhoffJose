@@ -38,10 +38,8 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
                         </div>
 
                         <section>
-
-
                             {
-                                isAdded ? <Button as={Link} to='/cart'>Terminar compra</Button>:
+                                id ===null || id ===''? <h6>error</h6> :  isAdded ? <Button as={Link} to='/cart'>Terminar compra</Button>:
                                 stock > 0 ? <ItemCount stock={stock} onAdd={handleonClick} />:<h4>Estamos sin stock actualmente</h4>
                             }
 

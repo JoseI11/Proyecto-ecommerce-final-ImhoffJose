@@ -34,6 +34,7 @@
 .labelEstilo{
     display: block;
     color: blue;
+    font-weight: bold;
 }
 .formEstilo{
     margin-top: 5%;
@@ -54,4 +55,10 @@
 #usertelefono::placeholder{
     color: black;
     opacity: 0.5;
+}
+.error{
+    color:red;
+    font-weight: bold;
+    font-size: 1.1rem;
+    
 }

@@ -3,7 +3,7 @@
 } */
 h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(13, 201, 176);
+    color: rgba(13, 201, 176, 0.747);
 }
 .spinner{
     position: relative;

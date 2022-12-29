@@ -2,17 +2,16 @@ import { CartContext } from "../../context/CartContext";
 import { useState, useContext } from "react"
 import { Button, Form } from "react-bootstrap"
 import "../Formulario/Formulario.css"
-import { CreateOrder } from "../../services/firebase/Firestore/orders";
+
 import { Validacionvalores } from "./Validaciones";
 import { Formik } from "formik";
-import { Link } from "react-router-dom";
-const Formulario = () => {
+const Formulario = ({CreateOrder}) => {
     const [usernombre, setUsernombre] = useState('')
     const [useremail, setUseremail] = useState('')
     const [userepetirmail, setUserepetirmail] = useState('')
     const [usertelefono1, setUsertelefono1] = useState('')
 
-    const { cartEcommerce, getTotalcarrito ,clearCart} = useContext(CartContext)   
+    const { cartEcommerce, getTotalcarrito} = useContext(CartContext)   
     return (
         <section>
             <h1 style={{ color: 'black' }}>Confirme su compra</h1>
@@ -25,64 +24,15 @@ const Formulario = () => {
 
                 }}
                 validate={(valores)=>{
-    //                 let erroresForm = {}
-    // if (!valores.username) {
-    //      setUsernombre('')
-    //     erroresForm.username = 'Debe ingresar su nombre'
-       
-    // } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.username)) {
-    //     setUsernombre('')
-    //     erroresForm.username = 'Debe contener letras y espacios'
-        
-    // }else{
-    //     setUsernombre(valores.username);
-    // }
 
-    // if (!valores.usermail) {
-    //     setUseremail('')
-    //     erroresForm.usermail = 'Debe ingresar su mail'
-    // } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.usermail)) {
-    //     setUseremail('')
-    //     erroresForm.usermail = 'El correo solo puede tener letras,guiones,numeros y guion bajo'
-    // }else{
-    //     setUseremail(valores.usermail)
-    // }
-    // if (!valores.userrepmail) {
-    //     setUserepetirmail('')
-    //     erroresForm.userrepmail = 'Debe ingresar su mail'
-
-    // } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.userrepmail)) {
-    //     setUserepetirmail('')
-    //     erroresForm.userrepmail = 'El correo solo puede tener letras,guiones,numeros y guion bajo'
-    // }else{
-    //     setUserepetirmail(valores.userrepmail)
-    // }
-    // // 
-    // if (!valores.usertelefono) {
-    //     setUsertelefono1('')
-    //     erroresForm.usertelefono = 'Debe ingresar su telefono'
-    // } else if (!/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/.test(valores.usertelefono)) {
-    //     setUsertelefono1('')
-    //     erroresForm.usertelefono = 'El telefono debe contener solo numeros y se debe agregar el codigo de area del mismo'
-    // }else{
-    //     setUsertelefono1(valores.usertelefono)
-    // }
-    
-    // return erroresForm
                     let errores=Validacionvalores({valores,setUsernombre,setUseremail,setUserepetirmail,setUsertelefono1})
                 
                     return errores
                 }}
-                onSubmit={(valores) => {
-                    // setUsernombre(valores.username)
-                    // setUseremail(valores.usermail)
-                    // setUsertelefono1(valores.usertelefono)
-             
+                onSubmit={() => {
+         
                     CreateOrder({usernombre,useremail,usertelefono1,cartEcommerce,getTotalcarrito})
            
-                    //clearCart()
-
-             
              
                 }}
             >

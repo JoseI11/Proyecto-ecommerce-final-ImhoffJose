@@ -42,7 +42,7 @@ p{
     border: transparent;
     cursor: default;
     position: relative;
-    right: 100px;
+    right: 30px;
 }
 img{
     width:5%;
@@ -75,4 +75,8 @@ a.nav-link{
     color: blue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
+}
+.valorCarrito{
+    margin-top: 0;
+    font-size: 1rem;
 }

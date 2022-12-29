@@ -1,38 +1,60 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { Button, Form, FormControl } from "react-bootstrap";
+
 import { useState } from "react";
 import Formulario from "../Formulario/Formulario";
 import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig";
-import { createOrder} from "../../services/firebase/Firestore/orders";
+import OrderProductos from "../OrderProduct/OrderProduct";
 const Checkout = () => {
 
-
+    const [Idcompra,setIdcompra]=useState();
+    const CreateOrder = ({ usernombre, useremail, usertelefono1, cartEcommerce, getTotalcarrito }) => {
+        
+        let now=new Date()
+        const objOrder = {
+            
+            buyer: {
+                name: usernombre,
+                mail: useremail,
+                date: now,
+                telefono: usertelefono1
+            },
+            items: cartEcommerce,
+            total: getTotalcarrito()
+        }
+        const orderRefer = collection(db, 'orderproducts')
+    
+        addDoc(orderRefer, objOrder).then(response => {
+           setIdcompra(response.id)
+        })
+        UpdateOrder(cartEcommerce)
+    }
+    const UpdateOrder = (cartEcommerce) => {
+       
+        const db = getFirestore();
+        cartEcommerce.forEach(element => {
+    
+            const stockDb = element.stock
+            const orderDoc = doc(db, 'productos', element.id)
+            if (stockDb > element.quantityToadd) {
+                const res = Number.parseInt(stockDb) - Number.parseInt(element.quantityToadd)
+            
+                 updateDoc(orderDoc, { stock: res })
+              
+            } else {
+                alert(`La cantidad de compra del producto ${element.name} es mayor a su stock`)
+            }
+    
+        })
+    }
+    
   
-    // createOrder({username,usermail,usertelefono,cartEcommerce,getTotalcarrito})
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     const objOrder = {
-    //         buyer: {
-    //             name: username,
-    //             mail: usermail,
-    //             telefono: usertelefono
-    //         },
-    //         items: cartEcommerce,
-    //         total: getTotalcarrito()
-    //     }
-    //     console.log(objOrder)
-    //     const orderRefer = collection(db, 'orderproducts')
-
-    //     // addDoc(orderRefer, objOrder).then(response => {
-    //     //     console.log(response.id)
-    //     // })
-    //    // updateOrder();
-    // }
-   
     return (
-        <Formulario/>
+     <>
+       { Idcompra ? <OrderProductos idCompra={Idcompra} /> : <Formulario CreateOrder={CreateOrder}/>}
+       
+     </>
+      
+        
     )
 }
 

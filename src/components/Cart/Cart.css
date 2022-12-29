@@ -9,7 +9,23 @@
 
   /*  width: 55%;*/
   margin-bottom: 5%;
-  color: red;
+
+
+}
+
+.datosCarrito{
+    margin-left: 80px;
+    margin-right: 70px;
+}
+.carritoCard{
+    position: relative;
+    left: 5%;
+    margin-bottom: 5%;
+    color: red;
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    width: 90%;
 }
 .botonesRedir{
     margin-top: 70px;

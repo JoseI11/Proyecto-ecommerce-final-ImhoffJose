@@ -4,7 +4,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cartEcommerce, setCartecommerce] = useState([]);
-    console.log(cartEcommerce);
+
 
     const addItem = (productoAdd) => {
         if (!isInCart(productoAdd.id)) {
@@ -38,11 +38,7 @@ export const CartProvider = ({ children }) => {
         })
         return acum;
     }
-    // const carritoVacio(){
-    //     if(){
-            
-    //     }
-    // }
+    
     return (
         <CartContext.Provider value={{ cartEcommerce, addItem, removeItem, clearCart, isInCart, getCantidad ,getTotalcarrito}}>
             {children}

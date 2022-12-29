@@ -29,11 +29,14 @@ const NavigationBar = () => {
                         <Nav.Link as={Link} to='/'>Home</Nav.Link>
                         {/* <NavLink  as={NavLink } to='/category'  className={({isActive})=>isActive ? 'itemActivo':'itemnoActivo'}>Accesorios</NavLink>
                         <Nav.Link  as={NavLink } to='/category'>Gabinetes</Nav.Link> */}
+
+                    <Nav.Link  as={Link } to='/category/Procesadores'>Procesadores</Nav.Link> 
                         <Nav.Link as={Link} to='/category/SSD'>SSD</Nav.Link>
                         <Nav.Link as={Link} to='/category/MemRam'>Memorias</Nav.Link>
                         
 
                     </Nav>
+                 
                     <CartWidget valor={cantidadTotal} />
 
 

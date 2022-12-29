@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 // import { getDocs,collection,query,where, orderBy} from 'firebase/firestore';
 // import { db } from '../../services/firebase/firebaseConfig';
 const firebaseConfig = {
-  apiKey: "AIzaSyCCEH4G2dO_37yo5cq4CHcAxpqMtbKixqg",
-  authDomain: "e-commerce-imhoffjose.firebaseapp.com",
-  projectId: "e-commerce-imhoffjose",
-  storageBucket: "e-commerce-imhoffjose.appspot.com",
-  messagingSenderId: "186234676261",
-  appId: "1:186234676261:web:649f6a1bd7cef94235cbcc"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId ,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId ,
+  appId: process.env.REACT_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);

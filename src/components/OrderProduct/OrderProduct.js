@@ -1,29 +1,33 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-const OrderProduct =()=>{
-    return(
-        <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+const OrderProductos = ({idCompra}) => {
+  const [setShow] = useState(false);
+  
+  const handleClose = () => setShow(false);
+  const handleShow =()=> setShow(true);
+  
+  return (
+    <>
+      {/* <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button> */}
+
+      <Modal size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered show={handleShow} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>Compra exitosa</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
+        <Modal.Body>Su compra fue realizada con exito ,utilice el siguiente codigo {idCompra} para el seguimiento de su compra</Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button as={Link} variant="primary" onClick={handleClose} to='/'>
+            Finalizar compra
+          </Button>
         </Modal.Footer>
       </Modal>
-    )
+    </>
+  )
 }
+export default OrderProductos
