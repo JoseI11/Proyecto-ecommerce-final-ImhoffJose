@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+#Computer supplies & solutions
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
