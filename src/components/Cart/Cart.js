@@ -24,7 +24,7 @@ const Cart = () => {
                     {cartEcommerce.map(prod => {
                         return (
 
-                            <section>
+                        
 
 
                                 <div key={prod.id}>
@@ -42,7 +42,7 @@ const Cart = () => {
 
                                 </div>
 
-                            </section>
+                            
 
 
                         )

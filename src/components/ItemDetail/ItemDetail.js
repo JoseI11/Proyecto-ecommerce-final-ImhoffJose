@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import '../ItemDetail/ItemDetail.css';
 const ItemDetail = ({ id, name, description, price, img, stock }) => {
     
-    const { addItem, isInCart } = useContext(CartContext);
+    const { addItem, isInCart,removeItem } = useContext(CartContext);
 
     const handleonClick = (quantityToadd) => {
     
@@ -39,15 +39,20 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
 
                         <section>
                             {
-                                id ===null || id ===''? <h6>error</h6> :  isAdded ? <Button as={Link} to='/cart'>Terminar compra</Button>:
+                               isAdded ?<div>
+                                <Button as={Link} to='/cart'>No seguir comprando</Button>
+                                
+                                <Button style={{marginLeft:'50px'}} onClick={()=>removeItem(id)}>
+                                    Volver a comprar
+                                </Button>
+                             
+                               </div> :
                                 stock > 0 ? <ItemCount stock={stock} onAdd={handleonClick} />:<h4>Estamos sin stock actualmente</h4>
                             }
 
-                            {/* <button onClick={()=>{isAdded ? removeItem(prod2.id) : addItem(prod2)}}>
-                                        {isAdded ? 'Quitar compra' :'Agregar compra'}
-                                     </button> */}
+                        
                         </section>
-                        {/* addItem([...cartEcommerce , prod2.id]) */}
+               
                     </div>
                 </Card>
             </div>
