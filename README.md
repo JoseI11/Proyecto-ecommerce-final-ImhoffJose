@@ -1,34 +1,40 @@
-# Computer supplies & solutions
+# 🛒 E-commerce React App – Proyecto Final
+
+Este proyecto es una aplicación de comercio electrónico desarrollada como entrega final del curso de React.js. La aplicación permite a los usuarios explorar productos, agregarlos al carrito y simular una compra.
+
+## 🚀 Tecnologías utilizadas
+
+- ⚛️ React.js (Vite)
+- 🔥 Firebase (Firestore para base de datos y almacenamiento de órdenes)
+- 🧩 React Router DOM
+- 💅 CSS + librerías externas
+
+## ✨ Funcionalidades
+
+- Visualización de productos por categoría
+- Detalles individuales de cada producto
+- Carrito de compras con resumen y total
+- Formulario de checkout con validación básica
+- Almacenamiento de órdenes en Firestore
+- Estilo responsive para móviles y escritorio
+
+## 📂 Estructura del proyecto
+
+- `components/`: componentes reutilizables como NavBar, ProductCard, etc.
+- `pages/`: vistas principales como Home, Cart y Checkout
+- `services/`: lógica para interacción con Firebase
+
+## 🧪 Instalación local
+
+```bash
+git clone https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose.git
+cd Proyecto-ecommerce-final-ImhoffJose
+npm install
+npm run dev
+```
+
+## 🖼️ Imagen del proyecto en acción
 ![](https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose/blob/main/public/images/gif-ecommerce.gif)
 
-
-### Sobre el proyecto
-
-Computer supplies & solutions es una aplicación e-commerce realizado para el curso de React.JS de Coderhouse. Cree una tienda de insumos informaticos, la cual es capaz de mostrar los productos desde una base de datos(Firebase), incluyendo sus detalles.La persona podrá navegar por cada uno de los artículos y realizar compras en la aplicación, manipulando los datos del usuario(nombre,email y telefono) y del pedido, como asi también actualizará el stock de los items a medida que son comprados.
-
-### Rutas del proyecto
-
-"/cart": ruta que lleva al usuario al carrito con las compras realizadas
-"/": ruta que lleva al home de la pagina
-"/checkout": ruta que lleva al usuario al formulario para finalizar la compra
-"/category": ruta que permite navegar al usuario por las diferentes secciones de la aplicación
-"/producto:id": ruta que permite al usuario ir al detalle de un producto
-### Ejecutar localmente
-```bash
-$ git clone https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose.git
-$ cd Proyecto-ecommerce-final-ImhoffJose
-$ npm install
-$ npm start
-```
-### Tecnologias usadas
-Front-end: jsx,Firebase,React Js
-Paquetes NPM: SweetAlert2, Formik
-
-SweetAlert2: utilice esta libreria para dar una mejor vista al usuario en caso de que se produzcan errores en la aplicación
-Formik: esta libreria la utilice para tener un mayor control del formulario de compra y asi dar una mejor experiencia al usuario
-
-### Deploy
-
-https://proyecto-ecommerce-final-imhoff-jose.vercel.app/
-
-
+## Autor (Realizado con mucho esfuerzo, perdonen el CSS y responsive)
+### José Imhoff 
