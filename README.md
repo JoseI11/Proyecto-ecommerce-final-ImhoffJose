@@ -1,30 +1,36 @@
-# 🛒 E-commerce React App – Proyecto Final
+# 🛒 E-commerce React App – Final Project
+This project is an e-commerce application developed as the final assignment for the React.js course. The app allows users to browse products, add them to the cart, and simulate a purchase process.
 
-Este proyecto es una aplicación de comercio electrónico desarrollada como entrega final del curso de React.js. La aplicación permite a los usuarios explorar productos, agregarlos al carrito y simular una compra.
+## 🚀 Technologies Used
+⚛️ React.js (Vite)
 
-## 🚀 Tecnologías utilizadas
+🔥 Firebase (Firestore for database and order storage)
 
-- ⚛️ React.js (Vite)
-- 🔥 Firebase (Firestore para base de datos y almacenamiento de órdenes)
-- 🧩 React Router DOM
-- 💅 CSS + librerías externas
+🧩 React Router DOM
 
-## ✨ Funcionalidades
+💅 CSS + external libraries
 
-- Visualización de productos por categoría
-- Detalles individuales de cada producto
-- Carrito de compras con resumen y total
-- Formulario de checkout con validación básica
-- Almacenamiento de órdenes en Firestore
-- Estilo responsive para móviles y escritorio
+## ✨ Features
+Product display by category
 
-## 📂 Estructura del proyecto
+Detailed view for each product
 
-- `components/`: componentes reutilizables como NavBar, ProductCard, etc.
-- `pages/`: vistas principales como Home, Cart y Checkout
-- `services/`: lógica para interacción con Firebase
+Shopping cart with summary and total price
 
-## 🧪 Instalación local
+Checkout form with basic validation
+
+Order storage in Firestore
+
+Responsive design for mobile and desktop
+
+## 📂 Project Structure
+- `components/`: reusable components like NavBar, ProductCard, etc.
+
+- `pages/`: main views such as Home, Cart, and Checkout
+
+- `services/`: logic for Firebase interaction
+
+## 🧪 Local Installation
 
 ```bash
 git clone https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose.git
@@ -32,9 +38,10 @@ cd Proyecto-ecommerce-final-ImhoffJose
 npm install
 npm run dev
 ```
-
-## 🖼️ Imagen del proyecto en acción
+🖼️ Project in Action
 ![](https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose/blob/main/public/images/gif-ecommerce.gif)
 
-## Autor (Realizado con mucho esfuerzo, perdonen el CSS y responsive)
-### José Imhoff 
+# Author
+### José Imhoff
+Built with effort and dedication (please forgive the CSS and responsiveness 😅)
+
