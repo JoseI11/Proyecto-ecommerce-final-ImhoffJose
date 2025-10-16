@@ -2,7 +2,7 @@
 This project is an e-commerce application developed as the final assignment for the React.js course. The app allows users to browse products, add them to the cart, and simulate a purchase process.
 
 ## 🚀 Technologies Used
-⚛️ React.js (Vite)
+⚛️ React.js
 
 🔥 Firebase (Firestore for database and order storage)
 
