@@ -1,47 +1,76 @@
-# 🛒 E-commerce React App – Final Project
-This project is an e-commerce application developed as the final assignment for the React.js course. The app allows users to browse products, add them to the cart, and simulate a purchase process.
+#  E-commerce React App
 
-## 🚀 Technologies Used
-⚛️ React.js
+Read in: [English](README.md) | [Español](README.es.md)
 
-🔥 Firebase (Firestore for database and order storage)
 
-🧩 React Router DOM
 
-💅 CSS + external libraries
+## Overview
+An e-commerce web application built as the final project for a React.js course.  
 
-## ✨ Features
-Product display by category
+Users can browse products by category, view details, add items to the cart, and simulate a checkout process. Orders are stored in Firebase Firestore.
+## Demo
 
-Detailed view for each product
+No aplica (aplicación de consola). Se ejecuta en local siguiendo los pasos de instalación.
 
-Shopping cart with summary and total price
 
-Checkout form with basic validation
 
-Order storage in Firestore
+## Features
+- Browse products by category
+- Product detail page
+- Shopping cart with total and summary
+- Checkout form with basic validation
+- Order storage in Firestore
+- Responsive layout (mobile and desktop)
+## Tech Stack
+- **React** – Component-based UI for building the storefront.
+- **React Router DOM** – Client-side routing for navigation between pages.
+- **Firebase Firestore** – Stores products/orders in a cloud database without building a custom backend.
+- **CSS + UI libraries** – Styling and layout.
+## Screenshots / GIF
 
-Responsive design for mobile and desktop
+![E-commerce Demo](https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose/blob/main/public/images/gif-ecommerce.gif)## Getting Started
 
-## 📂 Project Structure
-- `components/`: reusable components like NavBar, ProductCard, etc.
-
-- `pages/`: main views such as Home, Cart, and Checkout
-
-- `services/`: logic for Firebase interaction
-
-## 🧪 Local Installation
-
+Clone the repository:
 ```bash
 git clone https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose.git
 cd Proyecto-ecommerce-final-ImhoffJose
+```
+
+#### Install dependencies:
+
+```bash
 npm install
+```
+
+#### Run the project:
+
+```bash
 npm run dev
 ```
-🖼️ Project in Action
-![](https://github.com/JoseI11/Proyecto-ecommerce-final-ImhoffJose/blob/main/public/images/gif-ecommerce.gif)
+Ejecutar:
+```bash
+java -cp "out;src/lib/gson-2.13.1.jar" Main
+```
+En macOS/Linux, reemplazar ; por : en el classpath.
 
-# Author
-### José Imhoff
-Built with effort and dedication (please forgive the CSS and responsiveness 😅)
+## Variables de entorno
 
+Para ejecutar este proyecto, es necesario agregar las siguientes variables de entorno en un archivo `.env.local` en la raíz del proyecto:
+
+```env
+REACT_APP_apiKey=
+REACT_APP_authDomain=
+REACT_APP_projectId=
+REACT_APP_storageBucket=
+REACT_APP_messagingSenderId=
+REACT_APP_appId=
+```
+## Roadmap
+
+- Improve UI consistency and responsiveness
+- Add product search and sorting
+- Add user authentication (optional)
+- Add cart persistence between sessions
+## Autor
+
+- [@José Imhoff](https://www.linkedin.com/in/joseimhoff/)
