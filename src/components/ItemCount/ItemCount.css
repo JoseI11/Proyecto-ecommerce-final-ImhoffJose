@@ -1,47 +1,79 @@
 
-.resta{
-    width: 30px;
-    margin-right: 2px;
-    border-radius: 20px;
-    background-color: white;
-    position: relative;
-    right: 8%;
-    font-size: 1.5rem;
-}
-.suma{
-    width: 30px;
-    margin-right: 2px;
-    border-radius: 20px;
-    background-color: white;
-    position: relative;
-    left: 8%;
-    font-size: 1.5rem;
-    
-}
-.agregar{
-    margin-left: 2px;
-    background-color: cadetblue;
-    border: transparent;
-}
-h5{
-    font-size: 1rem;
-    vertical-align: middle;
-    position: relative;
-    top: 5px;
+/* ============================================
+   CONTADOR DE PRODUCTOS
+   ============================================ */
 
-}
-.itemCountcontainer{
+.item-count-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-.contador{
+    gap: 20px;
     width: 100%;
-    /* margin-top: 1.25rem;
-    margin-bottom: 1.25rem; */
+}
+
+.count-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--background-light);
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.count-controls .btn-count {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    background-color: white;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
-    
+}
+
+.count-controls .btn-count:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.count-controls .btn-count:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.count-display {
+    min-width: 50px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.btn-add-cart {
+    background-color: var(--primary-color) !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    transition: var(--transition) !important;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-add-cart:hover:not(:disabled) {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-2px);
+}
+
+.btn-add-cart:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }

@@ -9,6 +9,15 @@ export const CartProvider = ({ children }) => {
     const addItem = (productoAdd) => {
         if (!isInCart(productoAdd.id)) {
             setCartecommerce([...cartEcommerce, productoAdd]);
+        } else {
+            // Si el producto ya existe, actualiza la cantidad
+            const updatedCart = cartEcommerce.map(item => {
+                if (item.id === productoAdd.id) {
+                    return { ...item, quantityToadd: item.quantityToadd + productoAdd.quantityToadd };
+                }
+                return item;
+            });
+            setCartecommerce(updatedCart);
         }
     }
 

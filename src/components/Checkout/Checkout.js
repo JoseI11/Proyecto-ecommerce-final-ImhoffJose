@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import Formulario from "../Formulario/Formulario";
-import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig";
 import OrderProductos from "../OrderProduct/OrderProduct";
 const Checkout = () => {
@@ -25,17 +25,16 @@ const Checkout = () => {
     
         addDoc(orderRefer, objOrder).then(response => {
            setIdcompra(response.id)
+           UpdateOrder(cartEcommerce)
         })
-        UpdateOrder(cartEcommerce)
     }
     const UpdateOrder = (cartEcommerce) => {
        
-        const db = getFirestore();
         cartEcommerce.forEach(element => {
     
             const stockDb = element.stock
             const orderDoc = doc(db, 'productos', element.id)
-            if (stockDb > element.quantityToadd) {
+            if (stockDb >= element.quantityToadd) {
                 const res = Number.parseInt(stockDb) - Number.parseInt(element.quantityToadd)
             
                  updateDoc(orderDoc, { stock: res })

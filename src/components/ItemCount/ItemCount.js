@@ -1,43 +1,51 @@
-import { useState,useContext} from "react";
+import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { CartContext } from "../../context/CartContext";
 
 import '../ItemCount/ItemCount.css'
 
 const ItemCount = ({ stock, onAdd }) => {
-    const [count, setCount] = useState(0)
-   // const {setCartecommerce} = useContext(CartContext);
+    const [count, setCount] = useState(1)
+
     const incremento = () => {
         if (count < stock) {
             setCount(count + 1)
         }
-
     }
+
     const decremento = () => {
-        if (count > 0) {
+        if (count > 1) {
             setCount(count - 1)
         }
-
     }
        
     return (
-        <div>
-            <div className="itemCountcontainer">
-                <div className="contador">
-                    <button className="resta" onClick={() => decremento()}>-</button>
-                    <h5>{count}</h5>
-                    <button className="suma" onClick={() => incremento()}>+</button>
-                </div>
-                <Button variant="primary" onClick={() => onAdd(count)} disabled={count===0}>Agregar producto</Button>
-              
-            
+        <div className="item-count-wrapper">
+            <div className="count-controls">
+                <button 
+                    className="btn-count" 
+                    onClick={decremento}
+                    disabled={count <= 1}
+                >
+                    -
+                </button>
+                <span className="count-display">{count}</span>
+                <button 
+                    className="btn-count" 
+                    onClick={incremento}
+                    disabled={count >= stock}
+                >
+                    +
+                </button>
             </div>
-
-
-
+            <Button 
+                className="btn-add-cart" 
+                onClick={() => onAdd(count)} 
+                disabled={count === 0}
+            >
+                Agregar al carrito
+            </Button>
         </div>
-
-
     )
 }
+
 export default ItemCount
