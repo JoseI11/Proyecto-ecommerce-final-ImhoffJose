@@ -3,20 +3,15 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 const OrderProductos = ({idCompra}) => {
-  const [setShow] = useState(false);
+  const [show, setShow] = useState(true);
   
   const handleClose = () => setShow(false);
-  const handleShow =()=> setShow(true);
   
   return (
     <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
-
       <Modal size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered show={handleShow} onHide={handleClose}>
+      centered show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>Compra exitosa</Modal.Title>
         </Modal.Header>

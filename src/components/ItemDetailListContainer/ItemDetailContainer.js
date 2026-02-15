@@ -27,7 +27,7 @@ const Itemdetailcontainer = () => {
             setArrayproductosid(productoArrayid);
           });
       
-    })
+    }, [])
     if (isloading) {
         return <><Spinner animation="grow" variant="warning" className='spinner' /></>
     }

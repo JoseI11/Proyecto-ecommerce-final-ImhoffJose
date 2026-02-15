@@ -29,7 +29,7 @@ export const getProductos = (categoryId) => {
                     confirmButtonText: 'Cool',
                    
                 })
-
+                reject(error)
             })
     })
 }
