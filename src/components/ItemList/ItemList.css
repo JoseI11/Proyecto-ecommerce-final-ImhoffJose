@@ -1,10 +1,45 @@
-.itemList{
+/* ============================================
+   GRID DE PRODUCTOS
+   ============================================ */
+
+.itemList {
     display: grid;
-  
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: 80px;
-    margin-bottom: 80px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .itemList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .itemList {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .itemList {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+}
+
+/* Estado vacío */
+.itemList:empty::after {
+    content: 'No hay productos disponibles';
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+    font-size: 1.2rem;
 }

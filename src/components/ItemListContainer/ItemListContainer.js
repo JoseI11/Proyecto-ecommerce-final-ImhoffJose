@@ -16,7 +16,11 @@ const Itemlistcontainer = ({ greetings }) => {
     const { data: productos, error, isLoading} = useAsync(getProductosporcategoria, [categoryId])
 
     if(isLoading){
-        return <Spinner animation="border" variant="warning" className='spinner'/>
+        return (
+            <div className="spinner-container">
+                <Spinner animation="border" variant="danger" className='spinner'/>
+            </div>
+        )
     }
     if(error){
         Swal.fire({
@@ -28,10 +32,19 @@ const Itemlistcontainer = ({ greetings }) => {
         })
 
     }
+    
+    const getCategoryTitle = () => {
+        switch(categoryId) {
+            case 'SSD': return 'Discos de Estado Sólido';
+            case 'MemRam': return 'Memorias RAM';
+            case 'Procesadores': return 'Procesadores';
+            default: return greetings;
+        }
+    }
+    
     return (
-        <div className='fondoProd'>
-            {categoryId==='SSD'?<h1>Discos de estado solido</h1>:categoryId==='MemRam'?<h1>Memorias Ram</h1>:categoryId==='Procesadores'?<h1>Procesadores</h1>:<h1>{greetings}</h1>}
-            {/* <h1>{greetings}</h1> */}
+        <div className='products-container'>
+            <h1>{getCategoryTitle()}</h1>
             <ItemList productos2={productos}/>
         </div>
 

@@ -1,70 +1,152 @@
 import { CartContext } from "../../context/CartContext";
 import { useState, useContext } from "react"
-import { Button, Form } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import "../Formulario/Formulario.css"
 
 import { Validacionvalores } from "./Validaciones";
 import { Formik } from "formik";
-const Formulario = ({CreateOrder}) => {
+
+const Formulario = ({ CreateOrder }) => {
     const [usernombre, setUsernombre] = useState('')
     const [useremail, setUseremail] = useState('')
     const [userepetirmail, setUserepetirmail] = useState('')
     const [usertelefono1, setUsertelefono1] = useState('')
 
-    const { cartEcommerce, getTotalcarrito} = useContext(CartContext)   
+    const { cartEcommerce, getTotalcarrito } = useContext(CartContext)
+    const totalCompra = getTotalcarrito();
+    
+    const isFormValid = usernombre !== '' && useremail !== '' && userepetirmail !== '' && usertelefono1 !== '';
+
     return (
-        <section>
-            <h1 style={{ color: 'black' }}>Confirme su compra</h1>
-            <Formik
-                initialValues={{
-                    username: '',
-                    usermail: '',
-                    userrepmail: '',
-                    usertelefono: ''
+        <section className="checkout-container">
+            <h1>Finalizar Compra</h1>
+            
+            <div className="checkout-content">
+                <div className="checkout-form-card">
+                    <h2>📝 Datos de Contacto</h2>
+                    
+                    <Formik
+                        initialValues={{
+                            username: '',
+                            usermail: '',
+                            userrepmail: '',
+                            usertelefono: ''
+                        }}
+                        validate={(valores) => {
+                            let errores = Validacionvalores({ valores, setUsernombre, setUseremail, setUserepetirmail, setUsertelefono1 })
+                            return errores
+                        }}
+                        onSubmit={() => {
+                            CreateOrder({ usernombre, useremail, usertelefono1, cartEcommerce, getTotalcarrito })
+                        }}
+                    >
+                        {({ values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <label htmlFor="username">Nombre completo</label>
+                                    <input 
+                                        className="form-input" 
+                                        type='text' 
+                                        id="username" 
+                                        name="username" 
+                                        value={values.username} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} 
+                                        placeholder='Ej: Juan Pérez' 
+                                    />
+                                    {touched.username && errors.username && (
+                                        <div className="form-error">{errors.username}</div>
+                                    )}
+                                </div>
 
-                }}
-                validate={(valores)=>{
+                                <div className="form-group">
+                                    <label htmlFor="usermail">Correo electrónico</label>
+                                    <input 
+                                        className="form-input" 
+                                        type='email' 
+                                        id="usermail" 
+                                        name="usermail" 
+                                        placeholder='ejemplo@gmail.com' 
+                                        value={values.usermail} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} 
+                                    />
+                                    {touched.usermail && errors.usermail && (
+                                        <div className="form-error">{errors.usermail}</div>
+                                    )}
+                                </div>
 
-                    let errores=Validacionvalores({valores,setUsernombre,setUseremail,setUserepetirmail,setUsertelefono1})
-                
-                    return errores
-                }}
-                onSubmit={() => {
-         
-                    CreateOrder({usernombre,useremail,usertelefono1,cartEcommerce,getTotalcarrito})
-           
-             
-                }}
-            >
-                {({ values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
-                    <form className="formEstilo" onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <label htmlFor="userrepmail">Confirmar correo electrónico</label>
+                                    <input 
+                                        className="form-input" 
+                                        type='email' 
+                                        id="userrepmail" 
+                                        name="userrepmail" 
+                                        placeholder='ejemplo@gmail.com' 
+                                        value={values.userrepmail} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} 
+                                    />
+                                    {touched.userrepmail && errors.userrepmail && (
+                                        <div className="form-error">{errors.userrepmail}</div>
+                                    )}
+                                </div>
 
-                        <Form.Group className="mb-3" controlId="formNombre">
-                            <Form.Label className="labelEstilo">Nombre:</Form.Label>
-                            <input className="form__field" type='text' id="username" name="username" value={values.username} onChange={handleChange} onBlur={handleBlur} placeholder='Armando Barreda' />
-                            {touched.username && errors.username && <div className="error">{errors.username}</div>}
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formEmail">
-                            <Form.Label className="labelEstilo">Mail:</Form.Label>
-                            <input className="form__field" type='email' id="usermail" name="usermail" placeholder='ejemplo-int@gmail.com' value={values.usermail} onChange={handleChange} onBlur={handleBlur} />
-                            {touched.usermail && errors.usermail && <div className="error">{errors.usermail}</div>}
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formEmailrepetir">
-                            <Form.Label className="labelEstilo">Repita su mail:</Form.Label>
-                            <input className="form__field" type='email' id="userrepmail" name="userrepmail" placeholder='ejemplo-int@gmail.com' value={values.userrepmail} onChange={handleChange} onBlur={handleBlur} />
-                            {touched.userrepmail && errors.userrepmail && <div className="error">{errors.userrepmail}</div>}
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formTelefono">
-                            <Form.Label className="labelEstilo">Telefono:</Form.Label>
-                            <input className="form__field" type='text' id="usertelefono" name="usertelefono" placeholder='0349215578525' value={values.usertelefono} onChange={handleChange} onBlur={handleBlur} />
-                            {touched.usertelefono && errors.usertelefono && <div className="error">{errors.usertelefono}</div>}
-                        </Form.Group>
-               
-                        {usernombre === '' || useremail === '' || userepetirmail === '' || usertelefono1 === '' ? <Button type='submit' disabled>Confirmar compra</Button>:<Button type='submit'>Confirmar compra</Button>}
-                    </form>
-                )}
+                                <div className="form-group">
+                                    <label htmlFor="usertelefono">Teléfono de contacto</label>
+                                    <input 
+                                        className="form-input" 
+                                        type='text' 
+                                        id="usertelefono" 
+                                        name="usertelefono" 
+                                        placeholder='Ej: 11 1234-5678' 
+                                        value={values.usertelefono} 
+                                        onChange={handleChange} 
+                                        onBlur={handleBlur} 
+                                    />
+                                    {touched.usertelefono && errors.usertelefono && (
+                                        <div className="form-error">{errors.usertelefono}</div>
+                                    )}
+                                </div>
 
-            </Formik>
+                                <Button 
+                                    type='submit' 
+                                    className="btn-confirm"
+                                    disabled={!isFormValid}
+                                >
+                                    {isFormValid ? 'Confirmar Compra' : 'Complete todos los campos'}
+                                </Button>
+                                
+                                <p className="security-note">
+                                    Pago seguro y encriptado
+                                </p>
+                            </form>
+                        )}
+                    </Formik>
+                </div>
+
+                <div className="order-summary-card">
+                    <h3>🛒 Resumen del Pedido</h3>
+                    
+                    <div className="order-items">
+                        {cartEcommerce.map(item => (
+                            <div key={item.id} className="order-item">
+                                <span className="order-item-name">{item.name}</span>
+                                <span className="order-item-qty">x{item.quantityToadd}</span>
+                                <span className="order-item-price">
+                                    ${(item.price * item.quantityToadd).toLocaleString()}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <div className="order-total">
+                        <span>Total a pagar:</span>
+                        <span>${totalCompra.toLocaleString()}</span>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }

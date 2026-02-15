@@ -1,13 +1,66 @@
-/* .fondoProd{
-    background-color: rgba(255, 122, 81, 0.87);
-} */
-h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgba(13, 201, 176, 0.747);
+/* ============================================
+   CONTENEDOR DE PRODUCTOS
+   ============================================ */
+
+.products-container {
+    min-height: 60vh;
+    padding: 40px 0;
+    background-color: var(--background-light);
 }
-.spinner{
+
+.products-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 700;
     position: relative;
-    top: 270px;
-    width: 4rem;
-    height: 4rem;
+}
+
+.products-container h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Breadcrumb de categorías */
+.category-breadcrumb {
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Spinner de carga */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.spinner {
+    width: 4rem !important;
+    height: 4rem !important;
+    color: var(--primary-color) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .products-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+    
+    .products-container {
+        padding: 20px 0;
+    }
 }

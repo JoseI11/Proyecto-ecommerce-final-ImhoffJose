@@ -8,21 +8,28 @@ import '../Item/Item.css'
 const Item = ({ prod1 }) => {
 
     return (
-
-        <div>
-
-            <Card style={{width:'19rem', marginRight:'5px',position:'relative',left:'3px'}}>
-                <Card.Img  variant="top" src={prod1.img} alt={prod1.name} />
-                <Card.Body>
-                    <Card.Title>{prod1.name}</Card.Title>
-                    <p style={{fontSize:'1.3rem'}}>${prod1.price}</p>
-                    {prod1.stock > 0 ?<p style={{fontSize:'1.3rem'}}>Stock:{prod1.stock}</p>:<h5>Sin stock disponible</h5>}
-                    <Button as={Link} to={`/producto/${prod1.id}`} variant="primary" >Ver detalle</Button>
-                </Card.Body>
-
-
-            </Card>
-        </div>
+        <Card className="product-card">
+            <div className="card-img-container">
+                <Card.Img variant="top" src={prod1.img} alt={prod1.name} className="card-img-top" />
+                {prod1.stock > 0 ? (
+                    <span className="stock-badge in-stock">En stock</span>
+                ) : (
+                    <span className="stock-badge out-of-stock">Agotado</span>
+                )}
+            </div>
+            <Card.Body>
+                <Card.Title className="card-title">{prod1.name}</Card.Title>
+                <p className="product-price">${prod1.price.toLocaleString()}</p>
+                {prod1.stock > 0 ? (
+                    <p className="product-stock available">Disponibles: {prod1.stock} unidades</p>
+                ) : (
+                    <p className="product-stock unavailable">Sin stock disponible</p>
+                )}
+                <Button as={Link} to={`/producto/${prod1.id}`} variant="primary" className="btn-detail">
+                    Ver detalle
+                </Button>
+            </Card.Body>
+        </Card>
     )
 
 }
