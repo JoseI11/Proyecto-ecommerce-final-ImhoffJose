@@ -7,11 +7,8 @@ import OrderProductos from "../OrderProduct/OrderProduct";
 
 const Checkout = () => {
     const [Idcompra, setIdcompra] = useState();
-    const [isProcessing, setIsProcessing] = useState(false);
     
     const CreateOrder = async ({ usernombre, useremail, usertelefono1, cartEcommerce, getTotalcarrito }) => {
-        setIsProcessing(true);
-        
         const objOrder = {
             buyer: {
                 name: usernombre,
@@ -30,8 +27,6 @@ const Checkout = () => {
             setIdcompra(response.id);
         } catch (error) {
             console.error('Error al crear la orden:', error);
-        } finally {
-            setIsProcessing(false);
         }
     };
     
