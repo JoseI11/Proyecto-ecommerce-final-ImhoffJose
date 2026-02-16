@@ -17,7 +17,13 @@ const NavigationBar = () => {
     return (
         <Navbar expand="lg">
             <Container fluid>
-                <img src={'../images/iconoLogo.png'} alt="Logo" className="navbar-logo" />
+                <img 
+                    src={'../images/iconoLogo.png'} 
+                    alt="Logo" 
+                    className="navbar-logo"
+                    width="50"
+                    height="50"
+                />
                 <Navbar.Brand >Computer supplies & solutions</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">

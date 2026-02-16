@@ -10,7 +10,15 @@ const Item = ({ prod1 }) => {
     return (
         <Card className="product-card">
             <div className="card-img-container">
-                <Card.Img variant="top" src={prod1.img} alt={prod1.name} className="card-img-top" />
+                <Card.Img 
+                    variant="top" 
+                    src={prod1.img} 
+                    alt={prod1.name} 
+                    className="card-img-top"
+                    width="250"
+                    height="200"
+                    loading="lazy"
+                />
                 {prod1.stock > 0 ? (
                     <span className="stock-badge in-stock">En stock</span>
                 ) : (

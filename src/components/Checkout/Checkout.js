@@ -4,47 +4,57 @@ import Formulario from "../Formulario/Formulario";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig";
 import OrderProductos from "../OrderProduct/OrderProduct";
-const Checkout = () => {
 
-    const [Idcompra,setIdcompra]=useState();
-    const CreateOrder = ({ usernombre, useremail, usertelefono1, cartEcommerce, getTotalcarrito }) => {
+const Checkout = () => {
+    const [Idcompra, setIdcompra] = useState();
+    const [isProcessing, setIsProcessing] = useState(false);
+    
+    const CreateOrder = async ({ usernombre, useremail, usertelefono1, cartEcommerce, getTotalcarrito }) => {
+        setIsProcessing(true);
         
-        let now=new Date()
         const objOrder = {
-            
             buyer: {
                 name: usernombre,
                 mail: useremail,
-                date: now,
+                date: new Date(),
                 telefono: usertelefono1
             },
             items: cartEcommerce,
             total: getTotalcarrito()
+        };
+        
+        try {
+            const orderRefer = collection(db, 'orderproducts');
+            const response = await addDoc(orderRefer, objOrder);
+            await UpdateOrder(cartEcommerce);
+            setIdcompra(response.id);
+        } catch (error) {
+            console.error('Error al crear la orden:', error);
+        } finally {
+            setIsProcessing(false);
         }
-        const orderRefer = collection(db, 'orderproducts')
+    };
     
-        addDoc(orderRefer, objOrder).then(response => {
-           setIdcompra(response.id)
-           UpdateOrder(cartEcommerce)
-        })
-    }
-    const UpdateOrder = (cartEcommerce) => {
-       
-        cartEcommerce.forEach(element => {
-    
-            const stockDb = element.stock
-            const orderDoc = doc(db, 'productos', element.id)
-            if (stockDb >= element.quantityToadd) {
-                const res = Number.parseInt(stockDb) - Number.parseInt(element.quantityToadd)
-            
-                 updateDoc(orderDoc, { stock: res })
-              
-            } else {
-                alert(`La cantidad de compra del producto ${element.name} es mayor a su stock`)
-            }
-    
-        })
-    }
+    // Optimizado: ejecutar todas las actualizaciones en paralelo con Promise.all
+    const UpdateOrder = async (cartEcommerce) => {
+        const updatePromises = cartEcommerce
+            .filter(element => element.stock >= element.quantityToadd)
+            .map(element => {
+                const orderDoc = doc(db, 'productos', element.id);
+                const newStock = Number.parseInt(element.stock) - Number.parseInt(element.quantityToadd);
+                return updateDoc(orderDoc, { stock: newStock });
+            });
+        
+        // Alertar sobre productos sin stock suficiente
+        cartEcommerce
+            .filter(element => element.stock < element.quantityToadd)
+            .forEach(element => {
+                alert(`La cantidad de compra del producto ${element.name} es mayor a su stock`);
+            });
+        
+        // Ejecutar todas las actualizaciones en paralelo
+        await Promise.all(updatePromises);
+    };
     
   
     return (

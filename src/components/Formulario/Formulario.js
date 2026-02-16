@@ -52,7 +52,8 @@ const Formulario = ({ CreateOrder }) => {
                                         value={values.username} 
                                         onChange={handleChange} 
                                         onBlur={handleBlur} 
-                                        placeholder='Ej: Juan Pérez' 
+                                        placeholder='Ej: Juan Pérez…'
+                                        autoComplete="name"
                                     />
                                     {touched.username && errors.username && (
                                         <div className="form-error">{errors.username}</div>
@@ -66,10 +67,12 @@ const Formulario = ({ CreateOrder }) => {
                                         type='email' 
                                         id="usermail" 
                                         name="usermail" 
-                                        placeholder='ejemplo@gmail.com' 
+                                        placeholder='ejemplo@gmail.com…' 
                                         value={values.usermail} 
                                         onChange={handleChange} 
-                                        onBlur={handleBlur} 
+                                        onBlur={handleBlur}
+                                        autoComplete="email"
+                                        spellCheck={false}
                                     />
                                     {touched.usermail && errors.usermail && (
                                         <div className="form-error">{errors.usermail}</div>
@@ -83,10 +86,12 @@ const Formulario = ({ CreateOrder }) => {
                                         type='email' 
                                         id="userrepmail" 
                                         name="userrepmail" 
-                                        placeholder='ejemplo@gmail.com' 
+                                        placeholder='ejemplo@gmail.com…' 
                                         value={values.userrepmail} 
                                         onChange={handleChange} 
-                                        onBlur={handleBlur} 
+                                        onBlur={handleBlur}
+                                        autoComplete="email"
+                                        spellCheck={false}
                                     />
                                     {touched.userrepmail && errors.userrepmail && (
                                         <div className="form-error">{errors.userrepmail}</div>
@@ -97,13 +102,15 @@ const Formulario = ({ CreateOrder }) => {
                                     <label htmlFor="usertelefono">Teléfono de contacto</label>
                                     <input 
                                         className="form-input" 
-                                        type='text' 
+                                        type='tel' 
                                         id="usertelefono" 
                                         name="usertelefono" 
-                                        placeholder='Ej: 11 1234-5678' 
+                                        placeholder='Ej: 11 1234-5678…'
+                                        inputMode="tel"
                                         value={values.usertelefono} 
                                         onChange={handleChange} 
-                                        onBlur={handleBlur} 
+                                        onBlur={handleBlur}
+                                        autoComplete="tel"
                                     />
                                     {touched.usertelefono && errors.usertelefono && (
                                         <div className="form-error">{errors.usertelefono}</div>

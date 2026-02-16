@@ -12,7 +12,13 @@ const Cart = () => {
         return (
             <div className="cart-container">
                 <div className="cart-empty">
-                    <img src={'../images/imagenCarritovacio.png'} alt='Carrito vacío' />
+                    <img 
+                        src={'../images/imagenCarritovacio.png'} 
+                        alt='Carrito vacío'
+                        width="200"
+                        height="200"
+                        loading="lazy"
+                    />
                     <h2>Tu carrito está vacío</h2>
                     <p>¿Todavía no sabes qué comprar? ¡Tenemos los productos que necesitas!</p>
                     <Button as={Link} to='/' className="btn-primary">

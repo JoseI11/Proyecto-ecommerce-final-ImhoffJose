@@ -21,7 +21,12 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
             <div className="product-detail-card">
                 <div className="product-detail-content">
                     <div className="product-detail-image">
-                        <img src={img} alt={name} />
+                        <img 
+                            src={img} 
+                            alt={name}
+                            width="400"
+                            height="400"
+                        />
                     </div>
                     <div className="product-detail-info">
                         <h2>{name}</h2>
